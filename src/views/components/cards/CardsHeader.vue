@@ -1,7 +1,7 @@
 <template>
     <div class="row header-row">
         
-        <div class="col-md-2">
+        <div class="col-md-2" v-if="getCardsSection == 'table'">
             <button class="btn btn-block rounded btn-new" @click="showAddNewCardSection">
                 <i class="fas fa-plus-circle"></i><span> Add New</span>
             </button>
@@ -27,6 +27,11 @@ export default {
         },
         showAddNewCardSection(){
             store.commit('setCardsSection','add');
+        }
+    },
+    computed:{
+        getCardsSection(){
+            return store.state.cardsSecton;
         }
     }
 }

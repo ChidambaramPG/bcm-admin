@@ -60,4 +60,11 @@ a.sidebar-heading {
   font-size: 14px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1)
 }
+
+
+@media (max-width:320px)  {
+  .sidebar-content{
+    height:262px;
+  }
+}
 </style>

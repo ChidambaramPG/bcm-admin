@@ -6,6 +6,33 @@
           </div>
       </div>
     <div class="row add-new-card">
+      <div class="col-md-4 media-secton">
+        <div class="row">
+          <img
+            class="card-img img-responsive"
+            src="../../../assets/img/card.jpg"
+          />
+        </div>
+
+        <div class="row media-buttons">
+          <div class="col-md-6">
+            <button
+              class="btn btn-block rounded btn-new"
+              @click="showAddNewCardModal"
+            >
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button
+              class="btn btn-block rounded btn-new"
+              @click="showAddNewCardModal"
+            >
+              <i class="fas fa-image"></i>
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="col-md-8">
         <form action="">
           <div class="row">
@@ -112,33 +139,7 @@
           </div>
         </form>
       </div>
-      <div class="col-md-3 media-secton">
-        <div class="row">
-          <img
-            class="card-img img-responsive"
-            src="../../../assets/img/card.jpg"
-          />
-        </div>
-
-        <div class="row media-buttons">
-          <div class="col-md-6">
-            <button
-              class="btn btn-block rounded btn-new"
-              @click="showAddNewCardModal"
-            >
-              <i class="fas fa-camera"></i>
-            </button>
-          </div>
-          <div class="col-md-6">
-            <button
-              class="btn btn-block rounded btn-new"
-              @click="showAddNewCardModal"
-            >
-              <i class="fas fa-image"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
 </template>
@@ -172,7 +173,7 @@ export default {
   /* margin-top: 100px; */
   margin-bottom: 20px;
   background-color: #ffffff;
-  padding-bottom:20px;
+  padding:20px;
 }
 .btn-new {
   background-color: #f95473;

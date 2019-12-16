@@ -1,17 +1,14 @@
 <template>
   <section>
-      <div class="form-group mg-b-10">
-            <label for="">Category Name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Riken Keiki Safety"
-            />
-          </div>
+    
+
     <div class="row">
       <div class="col-md-8">
-        <form action="">
+        <div class="form-group mg-b-10">
+          <h5 for="">Select Category Items</h5>
           
+        </div>
+        <form action="">
           <table class="table table-hover">
             <thead class="table-head">
               <tr>
@@ -203,8 +200,64 @@
               </tr>
             </tbody>
           </table>
-          <div class="row">
-            <div class="col-md-3">
+          
+        </form>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mg-b-10">
+          <h5 for="">New Category</h5>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Category Name"
+          />
+        </div>
+
+        <table class="table table-hover">
+          <thead class="table-head">
+            <tr>
+              <th>Card</th>
+              <th>Company Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  class="card-img img-responsive"
+                  src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
+                />
+              </td>
+              <td>
+                We Care Services
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  class="card-img img-responsive"
+                  src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
+                />
+              </td>
+              <td>
+                We Care Services
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  class="card-img img-responsive"
+                  src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
+                />
+              </td>
+              <td>
+                We Care Services
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-6">
               <button
                 class="btn btn-block rounded btn-new"
                 @click.prevent="handleBackToCategory"
@@ -212,71 +265,12 @@
                 <span>Back</span>
               </button>
             </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-3">
+            <div class="col-md-6">
               <button class="btn btn-block rounded btn-new">
-                <span>Save Card</span>
+                <span>Save Category</span>
               </button>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="col-md-4">
-          <div class="form-group mg-b-10">
-            <label for="">Selected Cards</label>
-            
-          </div>
-          <table class="table table-hover">
-            <thead class="table-head">
-              <tr>               
-                <th>Card</th>
-                <th>Company Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                
-                <td>
-                  <img
-                    class="card-img img-responsive"
-                    src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
-                  />
-                </td>
-                <td>
-                  We Care Services
-                </td>
-
-              </tr>
-              <tr>
-                
-                <td>
-                  <img
-                    class="card-img img-responsive"
-                    src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
-                  />
-                </td>
-                <td>
-                  We Care Services
-                </td>
-
-              </tr>
-              <tr>
-                
-                <td>
-                  <img
-                    class="card-img img-responsive"
-                    src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"
-                  />
-                </td>
-                <td>
-                  We Care Services
-                </td>
-
-              </tr>
-              
-              
-            </tbody>
-          </table>
       </div>
     </div>
   </section>
@@ -304,5 +298,9 @@ input.form-control {
 
 tbody {
   height: 250px;
+}
+
+section {
+  font-size: 14px;
 }
 </style>

@@ -6,6 +6,33 @@
       </div>
     </div>
     <div class="row add-new-user">
+      <div class="col-md-4 media-section border-right">
+        <div class="row">
+          <img
+            class="card-img img-responsive"
+            src="../../../assets/img/user-img.jpg"
+          />
+        </div>
+
+        <div class="row media-buttons">
+          <div class="col-md-6">
+            <button
+              class="btn btn-block rounded btn-new"
+              @click="showAddNewCardModal"
+            >
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button
+              class="btn btn-block rounded btn-new"
+              @click="showAddNewCardModal"
+            >
+              <i class="fas fa-image"></i>
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="col-md-8">
         <form action="">
           <div class="row form-group">
@@ -88,33 +115,7 @@
           </div>
         </form>
       </div>
-      <div class="col-md-3 media-section">
-          <div class="row">
-            <img
-              class="card-img img-responsive"
-              src="../../../assets/img/user-img.jpg"
-            />
-          </div>
-
-          <div class="row media-buttons">
-            <div class="col-md-6">
-              <button
-                class="btn btn-block rounded btn-new"
-                @click="showAddNewCardModal"
-              >
-                <i class="fas fa-camera"></i>
-              </button>
-            </div>
-            <div class="col-md-6">
-              <button
-                class="btn btn-block rounded btn-new"
-                @click="showAddNewCardModal"
-              >
-                <i class="fas fa-image"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+      
     </div>
   </section>
 </template>
@@ -134,7 +135,6 @@ export default {
 <style scoped>
 .add-user-section {
   margin-top: 20px;
-  
 }
 .btn-new {
   background-color: #f95473;
@@ -154,14 +154,14 @@ export default {
   background-color: #ffffff;
   padding-bottom: 20px;
 }
-.card-img{
+.card-img {
   border-radius: 50%;
   margin-bottom: 20px;
 }
-form{
-  padding-top:20px;
+form {
+  padding-top: 20px;
 }
-.media-section{
-  padding:20px;
+.media-section {
+  padding: 20px;
 }
 </style>
