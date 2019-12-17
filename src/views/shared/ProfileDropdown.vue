@@ -19,18 +19,28 @@
     >
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#"
-      ><i class="fas fa-sign-out-alt"></i> Signout</a
+      @click.prevent="handleAdminSignout"><i class="fas fa-sign-out-alt"></i> Signout</a
     >
   </div>
 </template>
 
 <script>
 import store from "../../store/index.js";
+import firebase from "firebase";
+import router from '../../router/index.js';
 export default {
   name: "ProfileDropdown",
   methods: {
     setContentLayout: page => {
       store.commit("setActivePage", page);
+    },
+    handleAdminSignout(){
+      firebase.auth().signOut().then(function() {
+        router.push('/login')
+      }).catch(function(error) {
+        alert(error)
+      });
+
     }
   }
 };

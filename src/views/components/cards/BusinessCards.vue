@@ -18,108 +18,40 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr v-for="(card, index) in getAllCards" :key="index">
                 <td>
-                  <img class="card-img img-responsive" src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"/>
+                  <img class="card-img img-responsive" :src="card.image" />
                 </td>
                 <td>
-                  We Care Services
+                  <span v-if="card.name != null">{{ card.name }}</span>
+                  <span v-else>Not Added</span>
                 </td>
-                <td>QBits Building, Vytilla Junction, Kerala</td>
-                <td>Rahul</td>
-                <td>555-777-3434</td>
+                <td>
+                  <span v-if="card.address != null">{{ card.address }}</span>
+                  <span v-else>Not Added</span>
+                </td>
+                <td>
+                  <span v-if="card.cName != null">{{ card.cName }}</span>
+                  <span v-else>Not Added</span>
+                </td>
+                <td>
+                  <span v-if="card.cPhone != null">{{ card.cPhone }}</span>
+                  <span v-else>Not Added</span>
+                </td>
                 <td>Administrator</td>
                 <td>
-                  <a href="" @click.prevent="()=>showEditCard()"><i class="fas fa-edit text-success"></i></a>
-                  <a href="" @click.prevent="()=>showDeleteCardModal()"><i class="fas fa-times text-danger"></i></a>
+                  <a href="" @click.prevent="() => showEditCard()"
+                    ><i class="fas fa-edit text-success"></i
+                  ></a>
+                  <a href="" @click.prevent="() => showDeleteCardModal()"
+                    ><i class="fas fa-times text-danger"></i
+                  ></a>
                 </td>
                 <td>
-                    <p><span class="badge badge-info">Laptop Service</span> </p>
-                    <p><span class="badge badge-info">Mobile Service</span></p>
+                  <p><span class="badge badge-info">Laptop Service</span></p>
+                  <p><span class="badge badge-info">Mobile Service</span></p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <img class="card-img img-responsive" src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"/>
-                </td>
-                <td>
-                  We Care Services
-                </td>
-                <td>QBits Building, Vytilla Junction, Kerala</td>
-                <td>Rahul</td>
-                <td>555-777-3434</td>
-                <td>Administrator</td>
-                <td>
-                  <a href="" @click.prevent="()=>showEditCard()"><i class="fas fa-edit text-success"></i></a>
-                  <a href="" @click.prevent="()=>showDeleteCardModal()"><i class="fas fa-times text-danger"></i></a>
-                </td>
-                <td>
-                    <p><span class="badge badge-info">Laptop Service</span> </p>
-                    <p><span class="badge badge-info">Mobile Service</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="card-img img-responsive" src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"/>
-                </td>
-                <td>
-                  We Care Services
-                </td>
-                <td>QBits Building, Vytilla Junction, Kerala</td>
-                <td>Rahul</td>
-                <td>555-777-3434</td>
-                <td>Administrator</td>
-                <td>
-                  <a href="" @click.prevent="()=>showEditCard()"><i class="fas fa-edit text-success"></i></a>
-                  <a href="" @click.prevent="()=>showDeleteCardModal()"><i class="fas fa-times text-danger"></i></a>
-                </td>
-                <td>
-                    <p><span class="badge badge-info">Laptop Service</span> </p>
-                    <p><span class="badge badge-info">Mobile Service</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="card-img img-responsive" src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"/>
-                </td>
-                <td>
-                  We Care Services
-                </td>
-                <td>QBits Building, Vytilla Junction, Kerala</td>
-                <td>Rahul</td>
-                <td>555-777-3434</td>
-                <td>Administrator</td>
-                <td>
-                  <a href="" @click.prevent="()=>showEditCard()"><i class="fas fa-edit text-success"></i></a>
-                  <a href="" @click.prevent="()=>showDeleteCardModal()"><i class="fas fa-times text-danger"></i></a>
-                </td>
-                <td>
-                    <p><span class="badge badge-info">Laptop Service</span> </p>
-                    <p><span class="badge badge-info">Mobile Service</span></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="card-img img-responsive" src="https://www.digitalprinting.co.uk/media/images/products/slides/2/business-cards-1.jpg"/>
-                </td>
-                <td>
-                  We Care Services
-                </td>
-                <td>QBits Building, Vytilla Junction, Kerala</td>
-                <td>Rahul</td>
-                <td>555-777-3434</td>
-                <td>Administrator</td>
-                <td>
-                  <a href="" @click.prevent="()=>showEditCard()"><i class="fas fa-edit text-success"></i></a>
-                  <a href="" @click.prevent="()=>showDeleteCardModal()"><i class="fas fa-times text-danger"></i></a>
-                </td>
-                <td>
-                    <p><span class="badge badge-info">Laptop Service</span> </p>
-                    <p><span class="badge badge-info">Mobile Service</span></p>
-                </td>
-              </tr>
-             
-              
             </tbody>
           </table>
         </div>
@@ -149,20 +81,27 @@
   </div>
 </template>
 <script>
-import store from '../../../store/index.js';
+import store from "../../../store/index.js";
 export default {
   name: "BusinessCards",
-  methods:{
-    showEditCardsModal(){
-      store.commit('toggleEditCardModal')
+  methods: {
+    showEditCardsModal() {
+      store.commit("toggleEditCardModal");
     },
-    showDeleteCardsModal(){
-      store.commit('toggleDeleteCardModal')
+    showDeleteCardsModal() {
+      store.commit("toggleDeleteCardModal");
     },
-    showEditCard(){
-      store.commit('setCardsSection','edit');
+    showEditCard() {
+      store.commit("setCardsSection", "edit");
     }
-
+  },
+  computed: {
+    getAllCards() {
+      return store.state.businessCards;
+    }
+  },
+  beforeCreate() {
+    store.dispatch("fetchAllBusinessCards");
   }
 };
 </script>
@@ -193,24 +132,23 @@ th {
   background-color: #f95473;
   color: white;
 }
-.pagination-row{
-  padding-top:10px;
-  
+.pagination-row {
+  padding-top: 10px;
 }
-nav{
-  width:100%;
+nav {
+  width: 100%;
 }
 
-li.page-item>a{
-  color:#f95473;
-  background-color:white;
+li.page-item > a {
+  color: #f95473;
+  background-color: white;
 }
-li.page-item.active>a{
-  color:#f95473;
+li.page-item.active > a {
+  color: #f95473;
   background-color: #212b5e;
   border-color: transparent;
 }
-.card-img{
-  width:200px;
+.card-img {
+  width: 200px;
 }
 </style>

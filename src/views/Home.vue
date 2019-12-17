@@ -43,7 +43,8 @@ import Settings from './pages/Settings.vue';
 
 import AllModals from "./shared/AllModals.vue";
 import store from "../store/index.js";
-
+import router from "../router/index.js";
+import firebase from "firebase";
 export default {
   name: "home",
   components: {
@@ -64,6 +65,15 @@ export default {
     activePage() {
       return store.state.activePage;
     }
+  },
+  beforeCreate(){
+    let user = firebase.auth().currentUser;
+    firebase.firestore().collection("Admin").doc(user.uid).get().then(resp => {
+      // console.log(resp.data())
+      if(resp.data() == null){
+        router.replace('/login')
+      }
+    })
   }
 };
 </script>

@@ -15,8 +15,9 @@
         id="inputEmail"
         class="form-control"
         placeholder="Email address"
-        required=""
+        required=true
         autofocus=""
+        v-model="email"
       />
       <label for="inputPassword" class="sr-only">Password</label>
       <input
@@ -25,23 +26,66 @@
         class="form-control"
         placeholder="Password"
         required=""
+        v-model="password"
       />
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me" /> Remember me
         </label>
       </div>
-      <button class="btn btn-custom btn-block" type="submit">
+      <button class="btn btn-custom btn-block" type="submit" @click.prevent="loginAdmin">
+        <div class="spinner-border" role="status" v-if="loading">
+          <span class="sr-only">Loading...</span>
+        </div>
         Sign in
       </button>
       <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
     </form>
+    <div class="alert alert-danger" v-if="errorMessage!=''">
+      <p>{{errorMessage}}</p>
+    </div>
   </section>
 </template>
 
 <script>
+import firebase from 'firebase';
+import router from '../../router/index.js';
 export default {
-    name:'Login'
+    name:'Login',
+    data(){
+      return {
+        email:'',
+        password:'',
+        loading:false,
+        errorMessage:''
+      }
+    },
+    methods:{
+      loginAdmin(){
+        this.loading = true;
+        if(this.email == '' || this.password == ''){
+          // alert('email or password is missing')
+          this.errorMessage = 'email or password is missing';
+        this.loading = false;
+
+        }else{
+          console.log('signing in')
+          firebase.auth().signInWithEmailAndPassword(this.email,this.password)
+          .then(resp => {
+            console.log(resp)
+            this.loading = false;
+            router.push('/')
+          })
+          .catch( error => {
+            this.loading = false;
+
+            let errorMessage = error.message;
+            this.errorMessage = errorMessage;            
+
+          })
+        }
+      }
+    }
 };
 </script>
 

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import firebase from 'firebase';
 
 Vue.use(Vuex);
 
@@ -13,7 +14,6 @@ export default new Vuex.Store({
     businessCards:[],
     categories:[],
     users:[],
-
 
     sidebarVisible:true,
 
@@ -33,6 +33,8 @@ export default new Vuex.Store({
     deleteCardsModalVisible:false,
     newCategoryModalVisible:false,
     
+    // pagnation
+    cardsListPage:1
 
 
   },
@@ -78,15 +80,27 @@ export default new Vuex.Store({
     },
     setCategorySection: (state,payload) => {
       state.categorySection = payload;
+    },
+    setBusinessCards:(state,payload) => {
+      state.businessCards;
+      state.businessCards = payload;
     }
   },
   actions: {
-
+    fetchAllBusinessCards:({state}) => {
+      
+      firebase.firestore().collection("Cards").onSnapshot(resp => {
+        console.log(resp)
+        let cards = [];
+        resp.forEach(item => {
+          cards.push(item.data())
+        });
+        state.businessCards = cards;
+      })
+    }
   },
   modules: {},
   getters:{
-    getBrochureCount:state => {
-      return state.brochureCount;
-    }
+    
   }
 });

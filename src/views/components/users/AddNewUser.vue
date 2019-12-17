@@ -15,21 +15,8 @@
         </div>
 
         <div class="row media-buttons">
-          <!-- <div class="col-md-6">
-            <button
-              class="btn btn-block rounded btn-new"
-              @click="showAddNewCardModal"
-            >
-              <i class="fas fa-camera"></i>
-            </button>
-          </div> -->
+          
           <div class="col-md-6">
-            <!-- <button
-              class="btn btn-block rounded btn-new"
-              @click="showAddNewCardModal"
-            >
-              <i class="fas fa-image"></i>
-            </button> -->
             <input type="file" accept="image/*"/>
           </div>
         </div>
@@ -108,7 +95,7 @@
             <div class="col-md-3">
               <button
                 class="btn btn-block rounded btn-new"
-                @click="handleBackToCards"
+                @click="handleBackToUser"
               >
                 <span>Add User</span>
               </button>
